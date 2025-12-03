@@ -1,0 +1,269 @@
+// test.my - Comprehensive test for the simple compiler 
+// Tests: variables, operators, control flow, functions, I/O
+
+// Test 1: Basic arithmetic and variables
+func int test_arithmetic() {
+    int a = 10;
+    int b = 20;
+    int sum = a + b;
+    int diff = b - a;
+    int prod = a * b;
+    int quot = b / a;
+    int mod = b % a;
+    
+    print("=== Arithmetic Tests ===");
+    print("10 + 20 =");
+    print(sum);
+    print("20 - 10 =");
+    print(diff);
+    print("10 * 20 =");
+    print(prod);
+    print("20 / 10 =");
+    print(quot);
+    print("20 % 10 =");
+    print(mod);
+    
+    return sum;
+}
+
+// Test 2: Float operations
+func float test_floats() {
+    float x = 3.14;
+    float y = 2.5;
+    float result = x * y;
+    
+    print("=== Float Tests ===");
+    print("3.14 * 2.5 =");
+    print(result);
+    
+    return result;
+}
+
+// Test 3: Boolean and comparison operators
+func int test_comparisons() {
+    int a = 10;
+    int b = 20;
+    bool test1 = a < b;
+    bool test2 = a > b;
+    bool test3 = a == b;
+    bool test4 = a != b;
+    bool test5 = a <= 10;
+    bool test6 = b >= 20;
+    
+    print("=== Comparison Tests ===");
+    print("10 < 20:");
+    print(test1);
+    print("10 > 20:");
+    print(test2);
+    print("10 == 20:");
+    print(test3);
+    print("10 != 20:");
+    print(test4);
+    print("10 <= 10:");
+    print(test5);
+    print("20 >= 20:");
+    print(test6);
+    
+    return 0;
+}
+
+// Test 4: Logical operators
+func int test_logical() {
+    bool t = true;
+    bool f = false;
+    bool and_result = t && f;
+    bool or_result = t || f;
+    bool not_result = !f;
+    
+    print("=== Logical Tests ===");
+    print("true && false:");
+    print(and_result);
+    print("true || false:");
+    print(or_result);
+    print("!false:");
+    print(not_result);
+    
+    return 0;
+}
+
+// Test 5: If-else statements
+func int test_conditionals(int x) {
+    print("=== Conditional Tests ===");
+    
+    if (x > 0) {
+        print("x is positive");
+    } else {
+        print("x is not positive");
+    }
+    
+    if (x < 0) {
+        print("x is negative");
+    } else {
+        if (x == 0) {
+            print("x is zero");
+        } else {
+            print("x is positive (nested)");
+        }
+    }
+    
+    return 0;
+}
+
+// Test 6: While loop
+func int test_while() {
+    print("=== While Loop Test ===");
+    int i = 0;
+    int sum = 0;
+    
+    while (i < 5) {
+        sum = sum + i;
+        i = i + 1;
+    }
+    
+    print("Sum of 0 to 4:");
+    print(sum);
+    
+    return sum;
+}
+
+// Test 7: For loop
+func int test_for() {
+    print("=== For Loop Test ===");
+    int sum = 0;
+    
+    for (int i = 1; i <= 10; i = i + 1) {
+        sum = sum + i;
+    }
+    
+    print("Sum of 1 to 10:");
+    print(sum);
+    
+    return sum;
+}
+
+// Test 8: Nested loops
+func int test_nested_loops() {
+    print("=== Nested Loop Test ===");
+    int total = 0;
+    
+    for (int i = 1; i <= 3; i = i + 1) {
+        for (int j = 1; j <= 3; j = j + 1) {
+            total = total + i * j;
+        }
+    }
+    
+    print("Nested loop result:");
+    print(total);
+    
+    return total;
+}
+
+// Test 9: Recursion - Fibonacci
+func int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+func int test_recursion() {
+    print("=== Recursion Test (Fibonacci) ===");
+    int fib5 = fibonacci(5);
+    int fib7 = fibonacci(7);
+    
+    print("Fibonacci(5):");
+    print(fib5);
+    print("Fibonacci(7):");
+    print(fib7);
+    
+    return fib7;
+}
+
+// Test 10: Multiple parameters
+func int add_three(int a, int b, int c) {
+    return a + b + c;
+}
+
+func int test_multi_params() {
+    print("=== Multiple Parameters Test ===");
+    int result = add_three(10, 20, 30);
+    print("10 + 20 + 30 =");
+    print(result);
+    
+    return result;
+}
+
+// Test 11: String operations
+func int test_strings() {
+    print("=== String Tests ===");
+    string msg = "Hello, World!";
+    string name = "Compiler";
+    
+    print(msg);
+    print(name);
+    print("String test complete");
+    
+    return 0;
+}
+
+// Test 12: Unary operators
+func int test_unary() {
+    print("=== Unary Operator Tests ===");
+    int a = 5;
+    int neg = -a;
+    int pos = +a;
+    
+    print("Negation of 5:");
+    print(neg);
+    print("Positive of 5:");
+    print(pos);
+    
+    return 0;
+}
+
+// Test 13: Complex expression
+func int test_complex_expr() {
+    print("=== Complex Expression Test ===");
+    int result = (10 + 20) * 3 - 15 / 3;
+    print("(10 + 20) * 3 - 15 / 3 =");
+    print(result);
+    
+    return result;
+}
+
+// Test 14: Void function
+func void test_void() {
+    print("=== Void Function Test ===");
+    print("This function returns nothing");
+    return;
+}
+
+// Main function - runs all tests
+func int main() {
+    print("====================================");
+    print("Running Compiler Test Suite");
+    print("====================================");
+    
+    test_arithmetic();
+    test_floats();
+    test_comparisons();
+    test_logical();
+    test_conditionals(5);
+    test_conditionals(-3);
+    test_while();
+    test_for();
+    test_nested_loops();
+    test_recursion();
+    test_multi_params();
+    test_strings();
+    test_unary();
+    test_complex_expr();
+    test_void();
+    
+    print("====================================");
+    print("All tests completed!");
+    print("====================================");
+    
+    return 0;
+}

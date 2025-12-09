@@ -1,6 +1,3 @@
-"""
-Lexical analyzer (tokenizer) for the compiler
-"""
 import re
 from typing import List, Tuple
 
@@ -22,14 +19,12 @@ KEYWORDS = {
 }
 
 class Lexer:
-    """Tokenizes source code into tokens"""
     
     def __init__(self, text: str):
         self.text = text
         self.master_re = re.compile("|".join("(?P<%s>%s)" % pair for pair in TOKEN_SPEC))
     
     def tokenize(self) -> List[Token]:
-        """Convert source text to list of tokens"""
         tokens: List[Token] = []
         pos = 0
         

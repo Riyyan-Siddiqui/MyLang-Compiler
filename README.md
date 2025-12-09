@@ -12,6 +12,8 @@ Run your `.my` program with:
 
 ```bash
 python -m compiler.main test1.my --emit test.py --run
+python compile.py test.my --mode native --output myapp --run
+
 ```
 
 * `test1.my` → your MyLang source file

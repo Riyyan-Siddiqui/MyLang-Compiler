@@ -1,6 +1,3 @@
-"""
-Parser: converts tokens to Abstract Syntax Tree (AST)
-"""
 from typing import List, Optional
 from .lexer import Token
 from .ast_nodes import *
@@ -23,23 +20,19 @@ class Parser:
         self.pos = 0
 
     def peek(self) -> Token:
-        """Look at current token without consuming it"""
         return self.tokens[self.pos]
 
     def next(self) -> Token:
-        """Consume and return current token"""
         t = self.tokens[self.pos]
         self.pos += 1
         return t
 
     def match(self, *types) -> Optional[Token]:
-        """Check if current token matches any of the given types"""
         if self.peek()[0] in types:
             return self.next()
         return None
 
     def expect(self, typ: str) -> Token:
-        """Consume token and verify it matches expected type"""
         t = self.next()
         if t[0] != typ:
             raise SyntaxError(f"Expected {typ}, got {t}")
@@ -58,7 +51,6 @@ class Parser:
             return self.next()
         raise SyntaxError(f"Expected type, got {t}")
 
-    # ============ Top-level parsing ============
     
     def parse(self) -> Program:
         """Parse entire program (list of function declarations)"""
@@ -110,7 +102,6 @@ class Parser:
             stmts.append(self.parse_statement())
         return stmts
 
-    # ============ Statement parsing ============
     
     def parse_statement(self) -> Stmt:
         """Parse a single statement"""
